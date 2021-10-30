@@ -19,7 +19,7 @@
         }
         <h2>Please enter your dollar amount:</h2>
         @Html.LabelFor(m => m.Amount, "$ Amount")
-        @Html.TextBoxFor(m => m.Amount, new { placeholder = "$ Amount", autofocus = "" })
+        @Html.TextBoxFor(m => m.Amount, new { placeholder = "$ Amount", autofocus = "", @type = "number", @min = "0", @step = "0.01", @value = "0" })
         @Html.ValidationMessageFor(m => m.Amount)
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     }
