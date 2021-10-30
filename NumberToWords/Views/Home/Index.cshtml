@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model NumberToWords.Models.Index
+
+<div class="jumbotron">
+    <h1>Amount to Words!</h1>
+</div>
+
+<div class="container">
+    @using (Html.BeginForm("Index", "Home",
+        new { ReturnUrl = Request.QueryString["ReturnUrl"] },
+        FormMethod.Post,
+        new { @class = "form-submit" }))
+    {
+        if (IsPost)
+        {
+            <h2>Result: @Model.AmountInWords</h2>
+        }
+        <h2>Please enter your dollar amount:</h2>
+        @Html.LabelFor(m => m.Amount, "$ Amount")
+        @Html.TextBoxFor(m => m.Amount, new { placeholder = "$ Amount", autofocus = "" })
+        @Html.ValidationMessageFor(m => m.Amount)
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    }
+</div>
